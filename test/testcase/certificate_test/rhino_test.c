@@ -14,6 +14,15 @@
 #endif
 #define SYSINFO_KERNEL      "RHINO"
 
+#ifdef SYSINFO_KERNEL_VERSION
+#undef SYSINFO_KERNEL_VERSION
+#define SYSINFO_KERNEL_VERSION  AOS-R-1.2.1
+#endif 
+#ifdef SYSINFO_APP_VERSION
+#undef SYSINFO_APP_VERSION
+#define SYSINFO_APP_VERSION  APP-1.0.0-20180402.1605
+#endif
+
 /* dynamic memory alloc test */
 #if (RHINO_CONFIG_MM_TLF > 0)
 #define TEST_CONFIG_MM_ENABLED                  (0)
@@ -78,6 +87,8 @@ static int dump_test_config(void)
         PRINT_CONFIG(SYSINFO_MCU);
         PRINT_CONFIG(SYSINFO_DEVICE_NAME);
         PRINT_CONFIG(SYSINFO_KERNEL);
+        PRINT_CONFIG(SYSINFO_KERNEL_VERSION);
+        PRINT_CONFIG(SYSINFO_APP_VERSION);
     }
 
     PRINT_CONFIG(TEST_CONFIG_MM_ENABLED);
